@@ -80,3 +80,14 @@ docs/db/
 poetry.lock
 .aider*
 .gpteng
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+
