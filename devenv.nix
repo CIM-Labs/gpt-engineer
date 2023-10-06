@@ -1,16 +1,22 @@
-{ pkgs, flake-utils, ... }:
-
-{
-  # Python
-  languages.python = {
-    enable = true;
-    venv.enable = true;
-    poetry.enable = true;
-  };
-  
-
-  # Rust
-  languages.rust.enable = true;
-  # https://devenv.sh/reference/options/#languagesrustchannel
-  languages.rust.channel = "stable";
-}
+      # Develpment environment shells
+      devShells.${pkgs.system}.py = devenv.lib.mkShell {
+        inherit inputs pkgs;
+        modules = [{
+          languages.python.enable = true;
+          languages.python.venv.enable = true;
+          packages = with pkgs;
+            [
+              (python3.withPackages (ps:
+                with ps; [
+                  wheel # for building pip packages
+                  jupyter
+                  numpy
+                  pandas
+                  scikit-learn
+                  nltk
+                  scipy
+                  matplotlib
+                ]))
+            ];
+        }];
+      };

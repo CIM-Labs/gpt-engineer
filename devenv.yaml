@@ -1,17 +1,7 @@
 inputs:
   nixpkgs:
     url: github:NixOS/nixpkgs/nixpkgs-unstable
-
-  fenix:
-    url: github:nix-community/fenix
-    inputs:
-      nixpkgs:
-        follows: nixpkgs
         
   nixpkgs-python:
     url: github:cachix/nixpkgs-python
 
-  flake-utils:
-    url: github:numtide/flake-utils
-
-    
